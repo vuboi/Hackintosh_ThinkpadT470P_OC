@@ -1,1 +1,1 @@
-# Hackintosh_ThinkpadT470P_OC
+# Hackintosh_ThinkpadT470p_OC
