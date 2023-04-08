@@ -1,0 +1,19 @@
+# Lazy loads NVM
+export NVM_DIR=~/.nvm
+
+lazy_load_nvm() {
+  unset -f nvm node npm npx
+  # Load nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  # Load nvm bash_completion
+  if [ -f "$NVM_DIR/bash_completion" ]; then
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  fi
+}
+
+for action in nvm node npm npx; do
+  $action() {
+    lazy_load_nvm
+    $0 $@
+  }
+done
